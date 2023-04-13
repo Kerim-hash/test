@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
@@ -11,7 +11,9 @@ import IconButton from "@mui/material/IconButton";
 import ServerIcon from "../../assets/images/server-icon.svg";
 import LinkIcon from "../../assets/images/link.svg";
 import EyeIcon from "../../assets/images/eye.svg";
+import EyeUnder from "../../assets/images/eye-under.svg";
 import BlockIcon from "../../assets/images/block.svg";
+import UnLockIcon from "../../assets/images/unlock.svg";
 import EllipseIcon from "../../assets/images/ellipse.png";
 import Ellipse1Icon from "../../assets/images/ellipse1.png";
 import Ellipse2Icon from "../../assets/images/ellipse2.png";
@@ -22,33 +24,59 @@ import Tools from "../../components/Tools/tools";
 
 const LeftSide: React.FC = () => {
   const classes = useStylesHome();
-
-  const data = [
+  const [data, setData] = useState([
     {
       active: true,
       color: "#3660F4",
+      id: 1,
+      block: false,
+      hidden: false
     },
     {
       active: true,
       color: "#2BBB6A",
+      id: 2,
+      block: true,
+      hidden: false
     },
     {
       active: true,
       icon: EllipseIcon,
+      id: 3,
+      block: true,
+      hidden: false
     },
     {
       active: false,
       color: "#9C27B0",
+      id: 4,
+      block: false,
+      hidden: false
     },
     {
       active: false,
       icon: Ellipse1Icon,
+      id: 5,
+      block: false,
+      hidden: false
     },
     {
       active: false,
       icon: Ellipse2Icon,
+      id: 7,
+      block: false,
+      hidden: false
     },
-  ];
+  ])
+
+  const handle = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, id: number, type?: "hidden" | "block") => {
+    event.stopPropagation();
+    const item = data.find(item => item.id === id) 
+    if (item !== undefined && type !== undefined) {
+        item[type] = !item[type]
+    }
+    setData([...data])
+  }
 
   return (
     <Box className={`${classes.wrapper} ${classes.left}`}>
@@ -130,9 +158,9 @@ const LeftSide: React.FC = () => {
           <Typography variant="subtitle1">Событийные данные</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          {data.map((item) => {
+          {data.map((item, index) => {
             return (
-              <Accordion elevation={0}>
+              <Accordion elevation={0} key={item.id} >
                 <AccordionSummary
                   expandIcon={
                     <svg
@@ -154,6 +182,7 @@ const LeftSide: React.FC = () => {
                   aria-controls="panel2a-content"
                   id="panel2a-header"
                   sx={{ flexDirection: "row-reverse" }}
+                
                 >
                   <Box
                     display="flex"
@@ -171,7 +200,7 @@ const LeftSide: React.FC = () => {
                       display="flex"
                       justifyContent="space-between"
                       alignItems="center"
-                      sx={{ columnGap: "4px" }}
+                      sx={{ columnGap: "0px" }}
                     >
                       <Box
                         className={classes.colorPicker}
@@ -179,11 +208,14 @@ const LeftSide: React.FC = () => {
                           backgroundColor: item?.color,
                           backgroundImage: `url(${item.icon})`,
                           backgroundPosition: "center",
+                          "& MuiButtonBase-root":{
+                            padding: "3px"
+                          }
                         }}
                       ></Box>
-                      <img src={EyeIcon} alt="eye-icon" />
-                      <img src={LinkIcon} alt="eye-icon" />
-                      <img src={BlockIcon} alt="block-icon" />
+                     <IconButton onClick={(e) => handle(e, item.id, 'hidden')}><img  src={item.hidden ? EyeIcon : EyeUnder} alt="eye-icon" /></IconButton> 
+                      <IconButton onClick={(e) => handle(e, item.id)}><img  src={LinkIcon} alt="eye-icon" /></IconButton>
+                      <IconButton onClick={(e) => handle(e, item.id, 'block')}><img  src={item.block ? BlockIcon : UnLockIcon} alt="block-icon" /></IconButton>
                       <Box
                         className={classes.panelHeader}
                         sx={{ background: item.active ? "#FB8C00" : "" }}

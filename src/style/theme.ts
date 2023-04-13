@@ -74,6 +74,19 @@ export const theme = createTheme({
         },
       },
     },
+    MuiInputBase: {
+      styleOverrides: {
+        root: {
+          "input": {
+            padding: "0",
+            fontSize: "12px"
+          },
+          "&.MuiInput-root&::before": {
+          borderBottom: "1px solid #EAEAEC"
+          }
+        },
+      },
+    },
 
     MuiAccordionDetails: {
       styleOverrides: {

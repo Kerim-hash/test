@@ -14,11 +14,12 @@ const Tools = () => {
     const [position, setPosition] = useState({ x: 0, y: 0 });
 
     const trackPos = (data: any) => {
+        console.log(data)
       setPosition({ x: data.x, y: data.y });
    };
    
   return (
-     <Draggable  axis="y" onDrag={(e, data) => trackPos(data)}>
+     <Draggable enableUserSelectHack={false}  onDrag={(e, data) => trackPos(data)}>
     <Box className={classes.tools}>
  
     <Box className={classes.toolItem}>

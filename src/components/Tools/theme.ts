@@ -10,6 +10,7 @@ export const useStylesTools = makeStyles(() => ({
     top: '35px',
     right: '-55px',
     cursor: "move",
+    zIndex: -1
   },
   toolItem: {
     position: 'relative',
@@ -42,7 +43,6 @@ export const useStylesTools = makeStyles(() => ({
       background: "#E9E9EB",
        
     },
-  
   },
   toolItemActive: {
     background: "#7AA7FF",

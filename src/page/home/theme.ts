@@ -13,7 +13,7 @@ export const useStylesHome = makeStyles(() => ({
     right: "0",
     top: "0",
     width: "372px !important",
-    padding: "30px 70px 16px 16px !important",
+    padding: "30px 65px 16px 16px !important",
   },
   wrapper: {
     width: "250px",
@@ -51,6 +51,11 @@ export const useStylesHome = makeStyles(() => ({
     marginRight: "39px",
     display: "block",
   },
+  featuresInput :{
+    fontSize: '12px',
+    width: "75px",
+    padding: "0 10px 0 0"
+  },
   checkbox: {
     marginRight: "46px",
     display: "block",
@@ -69,7 +74,7 @@ export const useStylesHome = makeStyles(() => ({
   center: {
     position: "absolute",
     left: "25%",
-    zIndex: -1,
+    zIndex: -2,
     transform: "translateX(-5%)",
   },
   centerImg: {

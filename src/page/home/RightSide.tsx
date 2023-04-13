@@ -4,6 +4,7 @@ import Typography from "@mui/material/Typography";
 import Checkbox from "@mui/material/Checkbox";
 
 import { useStylesHome } from "./theme";
+import { TextField } from "@mui/material";
 
 const RightSide: React.FC = () => {
   const classes = useStylesHome();
@@ -14,45 +15,32 @@ const RightSide: React.FC = () => {
     <div className={`${classes.wrapper} ${classes.right}`}>
       <Box className={classes.innerBlock}>
         <Typography variant="body2">Пример 1</Typography>
-        <Typography variant="body2" className={classes.features}>
-          Полилинии
-        </Typography>
+ 
+        <TextField   className={classes.featuresInput} defaultValue="Полилинии" variant="standard"></TextField>
       </Box>
       <Box className={classes.innerBlock}>
         <Typography variant="body2">Наименование</Typography>
-        <Typography variant="body2" className={classes.features}>
-          line-2
-        </Typography>
+        <TextField   className={classes.featuresInput} defaultValue="line-2" variant="standard"></TextField>
       </Box>
       <Box className={classes.innerBlock}>
         <Typography variant="body2">Кол-во точек</Typography>
-        <Typography variant="body2" className={classes.features}>
-          14
-        </Typography>
+        <TextField   className={classes.featuresInput} defaultValue="14" variant="standard"></TextField>
       </Box>
       <Box className={classes.innerBlock}>
         <Typography variant="body2">Длина</Typography>
-        <Typography variant="body2" className={classes.features}>
-          12.53
-        </Typography>
+        <TextField   className={classes.featuresInput} defaultValue="12.53" variant="standard"></TextField>
       </Box>
       <Box className={classes.innerBlock}>
         <Typography variant="body2">Проецир-я длина</Typography>
-        <Typography variant="body2" className={classes.features}>
-          7.29
-        </Typography>
+          <TextField   className={classes.featuresInput} defaultValue="7.29" variant="standard"></TextField>
       </Box>
       <Box className={classes.innerBlock}>
         <Typography variant="body2">Пощадь</Typography>
-        <Typography variant="body2" className={classes.features}>
-          10.88
-        </Typography>
+        <TextField   className={classes.featuresInput} defaultValue="10.88" variant="standard"></TextField>
       </Box>
       <Box className={classes.innerBlock}>
         <Typography variant="body2">Проецирование площадь</Typography>
-        <Typography variant="body2" className={classes.features}>
-          0.16
-        </Typography>
+        <TextField   className={classes.featuresInput} defaultValue=" 0.16" variant="standard"></TextField>
       </Box>
       <Box className={classes.innerBlock}>
         <Typography variant="body2">Узор</Typography>
@@ -108,27 +96,20 @@ const RightSide: React.FC = () => {
       </Box>
       <Box className={classes.innerBlock}>
         <Typography variant="body2">Метка точки</Typography>
-        <Typography variant="body2" className={classes.features}>
-          4
-        </Typography>
+        <TextField   className={classes.featuresInput} defaultValue="4" variant="standard"></TextField>
       </Box>
       <Box className={classes.innerBlock}>
         <Typography variant="body2">X</Typography>
-        <Typography variant="body2" className={classes.features}>
-          10477,242
-        </Typography>
+        <TextField   className={classes.featuresInput} defaultValue="10477,242" variant="standard"></TextField>
       </Box>
       <Box className={classes.innerBlock}>
         <Typography variant="body2">Y</Typography>
-        <Typography variant="body2" className={classes.features}>
-          6457,262
-        </Typography>
+        <TextField   className={classes.featuresInput} defaultValue="6457,262" variant="standard"></TextField>
       </Box>
       <Box className={classes.innerBlock}>
         <Typography variant="body2">Z</Typography>
-        <Typography variant="body2" className={classes.features}>
-          3534,319
-        </Typography>
+        <TextField   className={classes.featuresInput} defaultValue="3534,319" variant="standard"></TextField>
+
       </Box>
     </div>
   );
